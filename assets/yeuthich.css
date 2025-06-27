@@ -1,0 +1,152 @@
+/* ==== Giao diện bài viết yêu thích ==== */
+
+.favorite-wrapper {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 30px 40px;
+    max-width: 1100px;
+    margin: 40px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.section-title h1 {
+    font-family: 'Roboto Serif', sans-serif;
+    font-size: 1.4em;
+    color: #B81B1B;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+/* Bài viết */
+.dishes-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 10px 0 40px;
+    justify-content: center;
+}
+
+.dish-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.dish-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dish-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Icon yêu thích */
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.favorite-icon i {
+    color: #B81B1B;
+    font-size: 1.3em;
+}
+
+.favorite-icon:hover {
+    background-color: #fff;
+}
+
+/* Nội dung */
+.dish-content {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.dish-content h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dish-content h3 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.dish-description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: calc(1.5em * 3);
+}
+
+.no-favorites-message {
+    text-align: left;
+    color: #777;
+    font-size: 1rem;
+    font-style: none;
+    margin-top: 40px;
+}
+
+.favorite-wrapper-header {
+    position: relative;
+    display: inline-block;
+}
+
+.favorite-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background-color: #c62828;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 50%;
+    min-width: 18px;
+    height: 18px;
+    line-height: 1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    display: flex;
+}

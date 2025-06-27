@@ -1,0 +1,164 @@
+/* === RESET TOÀN TRANG NGĂN TRÀN VÀ LAYOUT CHUẨN === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: "Roboto Serif", sans-serif;
+    box-sizing: border-box;
+}
+
+/* === WRAPPER CHÍNH === */
+.congthuc-wrapper {
+    padding: 40px 0;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* === THUMBNAIL BANNER === */
+.congthuc-banner-thumbnail {
+    width: 100%;
+    height: 400px;
+    background-size: 50%;
+    background-repeat: repeat;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* === GRID 2 CỘT === */
+.congthuc-grid {
+    display: grid;
+    grid-template-columns: 60% auto;
+    gap: 40px;
+    width: 100%;
+    max-width: 100%;
+    align-items: start;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+/* === CỘT TRÁI === */
+.congthuc-main h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.congthuc-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.congthuc-steps ol {
+    padding-left: 20px;
+}
+
+.congthuc-steps img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    display: block;
+}
+
+/* === CỘT PHẢI - HỘP NGUYÊN LIỆU === */
+.congthuc-sidebar {
+    display: flex;
+    justify-content: center; /* ✅ Căn giữa trong khối phải */
+}
+
+
+.congthuc-ingredients-box {
+    position: relative;
+    background-color: #FFE4E4;
+    padding: 24px;
+    border-radius: 12px;
+    min-height: 500px;
+    max-width: 330px;
+    width: 100%;
+    border: 2px solid #B81B1B;
+    overflow: hidden;
+
+    /* 🎯 Drop shadow bên phải */
+    box-shadow: 11px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Lớp nền trắng nhỏ hơn nằm bên trong */
+.congthuc-ingredients-box::before {
+    content: "";
+    position: absolute;
+    top: 20px;    /* 👈 khoảng cách với khung */
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    z-index: 0;
+    opacity: 1;
+}
+
+/* Nội dung nằm phía trên lớp trắng */
+.congthuc-ingredients-box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.congthuc-ingredients-box h2 {
+    font-size: 1.25rem;
+    color: #B81B1B;
+    margin-bottom: 15px;
+}
+
+.congthuc-ingredients-box ul {
+    list-style: disc inside;
+    padding-left: 0;
+}
+
+.congthuc-ingredients-box li {
+    margin-bottom: 8px;
+}
+
+/* === NGĂN TRÀN HÌNH ẢNH === */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* === RESPONSIVE CHUẨN === */
+@media (max-width: 991px) {
+    .congthuc-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .congthuc-sidebar {
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .congthuc-banner-thumbnail {
+        height: 180px;
+        background-size: contain;
+    }
+}
+/* === CÂU CHÚC MỪNG CUỐI TRANG === */
+.congthuc-footer-chuc {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #B81B1B;
+    font-style: italic;
+    margin: 40px auto 60px;
+    font-weight: 500;
+}

@@ -1,0 +1,599 @@
+/* --- Global Styles & Body --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Serif', sans-serif;
+    background-color: #f7f7f7; /* Light grey background for the whole page */
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.background-blur {
+    background-image: url("images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(12px);
+    opacity: 0.08;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: -1; /* Cho nó xuống dưới tất cả */
+    pointer-events: none; /* Cho phép click xuyên qua */
+}
+
+/* --- Header --- */
+header {
+    background-color: #ffffff;
+    /* GIỮ NGUYÊN PADDING 15px trên dưới, 50px trái phải. Nếu muốn rộng hơn, hãy tăng 50px lên. */
+    padding: 15px 50px; 
+    display: flex;
+    justify-content: space-between; /* Đảm bảo các nhóm được đẩy ra hai đầu */
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-left {
+    flex-shrink: 0; /* Không cho phép co lại */
+    /* Bỏ margin-right ở đây để justify-content: space-between hoạt động hiệu quả hơn */
+}
+
+.header-left .logo-img {
+    height: 50px;
+    vertical-align: middle;
+}
+
+.header-nav {
+    display: flex;
+    gap: 30px;
+    flex-grow: 1; /* Cho phép nav chiếm không gian sẵn có */
+    justify-content: center; /* Căn giữa các liên kết nav trong không gian nó chiếm */
+    align-items: center;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #4D5E6F;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.header-nav a:hover {
+    color: #B81B1B;
+}
+
+/* Dropdown specific styles */
+.dropdown-menu-parent {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    /* SỬA ĐỔI: Điều chỉnh padding-bottom và margin-bottom để dropdown không bị mất */
+    padding-bottom: 5px; 
+    margin-bottom: -5px; 
+}
+
+.dropdown-toggle .dropdown-arrow {
+    margin-left: 2px;
+    font-size: 0.8em; 
+    color: #4D5E6F; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    
+    /* SỬA ĐỔI: Điều chỉnh top để nó khớp chính xác hơn */
+    top: calc(100% - 5px); /* Trừ đi 5px để bù lại padding-bottom của parent, đảm bảo không có khe hở */
+    left: 0;
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdown-menu-parent:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    font-size: 1em;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #B81B1B;
+}
+
+/* Header Right - Search, Icons, Login */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0; /* Không cho phép co lại */
+    /* Bỏ margin-left ở đây để justify-content: space-between hoạt động hiệu quả hơn */
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 5px 15px;
+    background-color: #f9f9f9;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px 0;
+    font-size: 1em;
+    width: 150px;
+}
+
+.search-box .search-icon {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.header-right .icons {
+    display: flex;
+    gap: 15px;
+}
+
+.header-right .icons a {
+    color: #4D5E6F;
+    font-size: 1.3em;
+    transition: color 0.3s ease;
+}
+
+.header-right .icons a:hover {
+    color: #B81B1B;
+}
+
+.login-button {
+    background-color: #B81B1B;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.login-button:hover {
+    background-color: #9d1515;
+}
+
+
+/* --- Footer (Moved from homepage.css) --- */
+footer {
+    background-color: #f8f8f8;
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-top: 1px solid #ddd;
+    text-align: justify;
+}
+
+.footer-section {
+    width: 260px;
+    margin-bottom: 20px;
+    word-break: break-word; 
+}
+
+.footer-logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #c62828;
+    margin-bottom: 10px;
+}
+
+.footer-slogan {
+    font-size: 16px !important; 
+    font-weight: 500;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #c62828;
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 0.9rem;
+    color: #333333;
+    text-decoration: none;
+    margin-bottom: 6px;
+    display: block;
+}
+
+footer .social-icons {
+    position: relative;
+    z-index: 5;
+}
+
+footer .social-icons img {
+    pointer-events: auto;
+}
+
+.social-icons {
+    display: flex;
+    gap: 14px;
+    margin-top: 8px; 
+    align-items: flex-start;
+}
+
+.social-icons img {
+    transition: transform 0.3s ease;
+}
+
+.social-icons img[alt="Facebook"] {
+    width: 30px;
+    height: 30px;
+    margin-top: 7px; 
+}
+
+.social-icons img[alt="TikTok"] {
+    width: 45px;
+    height: 45px;
+    transform: scale(1.2)
+}
+
+.social-icons a {
+    color: #0077cc;
+}
+
+/* PHÂN TRANG */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #fff;
+    color: #B81B1B;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-link:hover {
+    background-color: #B81B1B;
+    color: #fff;
+}
+
+.page-link.active {
+    background-color: #B81B1B;
+    color: #fff;
+    pointer-events: none;
+}
+
+.pagination {
+    position: relative;
+    z-index: 10;
+}
+
+.page-link {
+    pointer-events: auto;
+}
+/*------------------------------*/
+
+/*DROP DOWN CHO PHẦN USER KHI ĐĂNG NHẬP - ĐĂNG XUẤT */
+/* Bọc dropdown */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Nút xin chào */
+.user-dropdown .login-button.user-toggle {
+    font-size: 16px;
+    background-color: #4d5e6f; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+/* Hover sáng nhẹ */
+.user-dropdown .login-button.user-toggle:hover {
+    background-color: #6b7c8c; /* sáng hơn #4d5e6f tí */
+}
+
+.user-dropdown .dropdown-icon {
+    font-size: 13px;
+    transform: translateY(1px); /* căn giữa */
+}
+
+/* Dropdown menu */
+.user-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: calc(100% + 5px);
+    right: 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 160px;
+    overflow: hidden;
+}
+
+/* Link trong menu */
+.user-menu a {
+    display: block;
+    padding: 12px 15px;
+    color: #333;
+    text-decoration: none !important;
+    font-size: 14px;
+}
+
+.user-menu a:hover {
+    background-color: #f9f9f9;
+}
+/* Styles for Notifications */
+/* Wrapper cho icon chuông và số thông báo */
+.notification-wrapper {
+    position: relative;
+    display: inline-block;
+    /* Đảm bảo nó không gây ảnh hưởng đến layout tổng thể */
+}
+
+/* Số lượng thông báo chưa đọc (badge) */
+.notification-count {
+    position: absolute;
+    top: -5px; /* Điều chỉnh vị trí theo icon chuông của bạn */
+    right: -8px; /* Điều chỉnh vị trí theo icon chuông của bạn */
+    background-color: #B81B1B; /* Màu đỏ */
+    color: white;
+    font-size: 0.7em;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 6px;
+    min-width: 18px;
+    text-align: center;
+    line-height: 1;
+    display: flex; /* Dùng flexbox để căn giữa số */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+    display: none; 
+}
+
+/* Cửa sổ thông báo (dropdown) */
+.notification-dropdown {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+    width: 350px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transform-origin: top right;
+    transform: scale(0.9) translateY(-10px);
+    opacity: 0;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    width: 300px;
+    font-size: 0.9em;
+    height: 360px;
+}
+
+
+/* Hiển thị cửa sổ thông báo */
+.notification-dropdown.active {
+    display: block;
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.notification-header {
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    background-color: #f9f9f9;
+    padding: 10px;
+    font-size: 1em;
+    flex-shrink: 0;
+}
+
+.notification-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow-x: hidden;
+    max-height: 300px;
+    flex-grow: 1;
+}
+
+.notification-item {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+    position: relative;
+    font-size: 0.9em;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+/* Thông báo chưa đọc */
+.notification-item.unread {
+    background-color: #e6f7ff; /* Màu nền cho thông báo chưa đọc */
+}
+
+.notification-item:hover {
+    background-color: #f5f5f5;
+}
+
+.notification-item.unread:hover {
+    background-color: #d0efff;
+}
+
+.notification-item .notification-link {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.notification-item .notification-message {
+    font-size: 0.9em;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.notification-item .notification-date {
+    font-size: 0.7em;
+    color: #777;
+}
+
+/* Chấm đỏ cho thông báo chưa đọc */
+.notification-item .read-dot {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 8px;
+    height: 8px;
+    background-color: #B81B1B; /* Màu chấm đỏ */
+    border-radius: 50%;
+}
+
+.notification-dropdown .no-notifications,
+.notification-dropdown .loading-notifications,
+.notification-dropdown .error-notifications {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.notification-footer {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 0.8em;
+    display: none;
+}
+
+.notification-footer a {
+    text-decoration: none;
+    color: #B81B1B;
+    font-weight: bold;
+    font-size: 0.7em;
+    display: inline-block;
+    margin-top: 2px;
+    transition: color 0.2s ease;
+}
+
+
+.notification-footer a:hover {
+    color: #9d1515;
+}
+
+/* Styles cho nút chuông bị vô hiệu hóa khi chưa đăng nhập */
+.header-right .icons .disabled-bell {
+    cursor: default; /* Không cho con trỏ click */
+    opacity: 0.6; /* Làm mờ đi */
+    pointer-events: auto; /* Cho phép sự kiện hover (nếu muốn thêm tooltip) */
+    text-decoration: none; /* Bỏ gạch chân nếu là thẻ a */
+    color: #4D5E6F; /* Giữ màu sắc như icon khác */
+}
+
+.header-right .icons .disabled-bell:hover {
+    color: #4D5E6F; /* Không đổi màu khi hover */
+}
+
+/* Yêu thích */
+.favorite-wrapper-header {
+    position: relative;
+    display: inline-block;
+}
+
+.favorite-wrapper-header .favorite-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #B81B1B;
+    color: white;
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 1.2px 1.2px;
+    border-radius: 100%;
+    z-index: 800;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

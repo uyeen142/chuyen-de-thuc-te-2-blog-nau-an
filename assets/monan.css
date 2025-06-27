@@ -1,0 +1,138 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto Serif", sans-serif;;
+    background-color: #fdfdfd;
+    color: #222;
+}
+
+/* ---------------- GIỚI THIỆU ---------------- */
+.intro-box-monan-tongquan {
+    background-color: transparent;
+    text-align: center;
+    padding: 30px 20px 40px;
+    margin-top: 0;
+}
+
+.intro-box-monan-tongquan .section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #B81B1B;
+    margin-bottom: 16px;
+}
+
+.intro-box-monan-tongquan .intro-text {
+    font-size: 1.125rem;
+    color: #000;
+    line-height: 1.6;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+/* ---------------- GRID DANH MỤC ---------------- */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1180px;
+    margin: 10px auto 40px;
+    padding: 0 20px;
+}
+
+.category-card {
+    background-color: #FFE4E4; /* Màu nền của card tổng thể */
+    border: 2px solid #B81B1B;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    padding: 18px; /* Thêm padding cho card tổng thể để tạo khoảng cách */
+    position: relative; /* Quan trọng: Thiết lập ngữ cảnh cho z-index */
+    z-index: 1; /* Quan trọng: Đảm bảo card nằm trên cùng các phần tử khác */
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.category-content-wrapper {
+    background-color: #FFFFFF; /* NỀN TRẮNG BÊN TRONG */
+    border-radius: 3px; /* Bo góc nhẹ cho box nội dung trắng */
+    flex-grow: 1; /* Đảm bảo wrapper chiếm đủ không gian */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Quan trọng để bo góc ảnh không bị tràn */
+}
+
+.category-title {
+    font-size: 1.5rem;
+    color: #B81B1B;
+    font-weight: 700;
+    margin: 15px 15px 10px; /* Thêm margin trên và dưới để tạo khoảng cách */
+}
+
+.category-img {
+    width: 100%; /* Ảnh bằng chiều rộng box trắng */
+    height: 230px; /* Chiều cao cố định cho ảnh */
+    object-fit: cover;
+
+    margin: 0 auto 0; /* Canh giữa ảnh và loại bỏ margin trên, dưới không cần thiết */
+    display: block; /* Quan trọng để margin auto hoạt động và ảnh nằm trên 1 dòng riêng */
+}
+
+.category-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    padding: 0 16px 15px; /* Thêm padding dưới để có khoảng trống với cuối box trắng */
+    flex-grow: 1; /* Đảm bảo mô tả chiếm đủ không gian còn lại */
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+    .category-grid {
+        gap: 24px;
+    }
+
+    .intro-box-monan-tongquan .section-title {
+        font-size: 2rem;
+    }
+
+    .intro-box-monan-tongquan .intro-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .category-card {
+        padding: 10px; /* Giảm padding tổng thể trên di động */
+    }
+
+    .category-img {
+        width: calc(100% - 20px);
+        height: 150px; /* Điều chỉnh chiều cao ảnh trên di động */
+    }
+
+    .category-title {
+        margin: 10px 10px 8px;
+    }
+
+    .category-description {
+        padding: 0 10px 10px;
+    }
+}

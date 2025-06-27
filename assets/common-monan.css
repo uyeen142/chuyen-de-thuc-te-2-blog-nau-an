@@ -1,0 +1,310 @@
+/* ---------------- FONT TOÀN TRANG ---------------- */
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto Serif", sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* ---------------- BANNER ---------------- */
+.intro-box {
+    height: 300px;
+    background-color: #B81B1B;
+    color: #fff;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.intro-box .section-title {
+    font-size: 2.4rem;
+    color:  #FFDF20;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.intro-box .intro-text {
+    font-size: 1.1rem;
+    color: #f0f0f0;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto 10px;
+    font-weight: 400;
+}
+
+/* ---------------- THANH TÌM KIẾM ---------------- */
+.search-bar-inner {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto 0;
+    display: flex;
+    border: 1px solid #D1D5DB;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input-inner {
+    flex-grow: 1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    outline: none;
+    background: transparent;
+    color: #333;
+}
+
+.search-input-inner::placeholder {
+    color: #888;
+}
+
+.search-button-inner {
+    background-color: transparent;
+    color: #B81B1B;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.search-button-inner:hover {
+    color: #A01010;
+}
+
+/* ---------------- DANH SÁCH MÓN ĂN ---------------- */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1134px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.dish-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* ✅ CHỈNH: đồng bộ chiều cao ảnh và nội dung */
+    background-color: #fff; /*Nền box bài post*/
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    height: 220px;
+    text-align: left;
+}
+
+.dish-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dish-img {
+    width: 300px;
+    height: 100%; /* ✅ CHỈNH: luôn cao bằng card */
+    object-fit: cover;
+    flex-shrink: 0;
+    border-right: 1px solid #eee;
+}
+
+.dish-content {
+    flex: 1;
+    padding: 30px 25px 20px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.dish-title,
+.dish-title a {
+    font-size: 1.25rem; /* ✅ GIẢM SIZE title */
+    font-weight: bold;
+    color: #000 !important;
+    text-decoration: none !important;
+    margin: 0 0 12px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+}
+
+.dish-description {
+    font-size: 1.12rem;
+    color: #444;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* ✅ CHO PHÉP HIỆN 4 DÒNG MÔ TẢ */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ---------------- ICON TRÁI TIM ---------------- */
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.favorite-icon i {
+    color: #B81B1B;
+    font-size: 1.2em;
+}
+
+.favorite-icon:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* ---------------- PHÂN TRANG ---------------- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto 80px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.page-link:hover {
+    background-color: #f8f8f8;
+    border-color: #B81B1B;
+    color: #B81B1B;
+}
+
+.page-link.active {
+    color: #B81B1B;
+    font-weight: 700;
+    border: 2px solid #B81B1B;
+    background-color: #fff;
+}
+
+.page-link.back,
+.page-link.next {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    min-width: 102px;
+    height: 37px;
+    font-weight: 500;
+    padding: 0 16px;
+}
+
+.page-link.back:hover,
+.page-link.next:hover {
+    border-color: #B81B1B;
+    color: #B81B1B;
+}
+
+.page-link.clicked {
+    background-color: #B81B1B !important;
+    color: #fff !important;
+    border: 1px solid #B81B1B !important;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 40px auto;
+    }
+
+    .dish-card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .dish-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .dish-content {
+        padding: 25px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dish-title {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 576px) {
+    .dishes-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .page-link {
+        padding: 8px 12px;
+    }
+
+    .search-bar-inner {
+        flex-direction: column;
+        border-radius: 10px;
+        width: 95%;
+    }
+
+    .search-input-inner {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .search-button-inner {
+        width: 100%;
+        padding: 10px;
+    }
+}

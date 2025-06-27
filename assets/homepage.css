@@ -1,0 +1,292 @@
+/* --- Hero Section (Banner) --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Tăng chiều cao banner */
+    background-image: url('../images/Banner.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content .blog-title {
+    font-family: 'Roboto Serif', sans-serif;
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    line-height: 1;
+    color: white;
+    font-weight: 700;
+}
+
+.hero-content .cooking-slogan {
+    font-family: 'Roboto Serif', sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+    margin-top: 0;
+    color: white;
+}
+
+.hero-content .cooking-slogan .great-vibes {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.2em;
+    color: white;
+}
+
+/* --- Content Wrapper (for 'Tất cả khóa học' title, dishes and pagination) --- */
+.content-wrapper {
+    max-width: 1100px; /* Điều chỉnh max-width để các bài viết thu hẹp vào một chút */
+    margin: 0 auto;
+    padding: 0 40px; /* Tăng padding hai bên để tạo lề */
+}
+
+.section-title {
+    text-align: left; /* Căn lề trái cho tiêu đề */
+    margin: 40px 0 10px 0; /* Rút ngắn margin-bottom thêm nữa (ví dụ 10px) */
+}
+
+.section-title h1 {
+    font-family: 'Roboto Serif', sans-serif;
+    font-size: 1.25em; /* Kích thước chữ vẫn như cũ */
+    color: #B81B1B; /* Màu chữ nhạt hơn một chút (darker grey) */
+    font-weight: 500; /* Giảm độ đậm */
+    display: inline-block; /* Để <em> không nhảy dòng */
+}
+
+.section-title h1 em {
+    font-style: italic;
+    color: #B81B1B; /* Đảm bảo vẫn đúng màu nhạt */
+}
+
+/* --- Dishes Grid (assuming fetch_dishes.php outputs dish cards) --- */
+.dishes-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Styling cho một thẻ món ăn */
+.dish-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Quan trọng để định vị icon */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: unset;
+    margin: 0 auto; /* Center nếu chỉ 1 */
+}
+
+.dish-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dish-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* CSS ĐÃ CHỈNH SỬA cho icon yêu thích */
+.favorite-icon {
+    position: absolute;
+    top: 10px; /* Khoảng cách từ trên xuống */
+    right: 10px; /* THAY ĐỔI: Chuyển sang góc phải */
+    background-color: rgba(255, 255, 255, 0.8); /* Nền trắng hơi trong suốt */
+    border-radius: 50%; /* Hình tròn */
+    width: 35px; /* Kích thước vòng tròn */
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+    cursor: pointer;
+    z-index: 10; /* Đảm bảo icon nằm trên ảnh */
+    transition: background-color 0.3s ease;
+}
+
+.favorite-icon i {
+    color: #B81B1B; /* Màu trái tim */
+    font-size: 1.2em; /* Kích thước trái tim */
+}
+
+.favorite-icon:hover {
+    background-color: rgba(255, 255, 255, 1); /* Sáng hơn khi hover */
+}
+
+.dish-content {
+    padding: 15px 20px;
+    text-align: left; /* Canh lề trái cho nội dung bài viết */
+    flex-grow: 1; /* Dàn đều nội dung card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dish-content h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dish-content .dish-description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.5;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;  /* Chỉ hiển thị 3 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    min-height: calc(1.5em * 3); /* Đảm bảo chiếm đủ chiều cao 3 dòng */
+}
+
+.dish-content .dish-coming-soon {
+    font-size: 0.9em;
+    color: #B81B1B;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #f8f8f8;
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-top: 1px solid #ddd;
+    text-align: justify;
+}
+
+.footer-section {
+    width: 260px;
+    margin-bottom: 20px;
+    word-break: break-word;
+}
+
+.footer-logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #c62828;
+    margin-bottom: 10px;
+}
+
+.footer-slogan {
+    font-size: 16px !important;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #c62828;
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 0.9rem;
+    color: #333333;
+    text-decoration: none;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.social-icons {
+    display: flex;
+    gap: 14px;
+    margin-top: 8px;
+    align-items: flex-start;
+}
+
+.social-icons img {
+    transition: transform 0.3s ease;
+}
+
+.social-icons img[alt="Facebook"] {
+    width: 30px;
+    height: 30px;
+    margin-top: 7px;
+}
+
+.social-icons img[alt="TikTok"] {
+    width: 45px;
+    height: 45px;
+    transform: scale(1.2)
+}
+
+.social-icons a {
+    color: #0077cc;
+}
+
+.view-all-wrapper {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.view-all-btn {
+    background-color: #9e1b1b;
+    color: white;
+    padding: 14px 36px;
+    font-weight: bold;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
+    z-index: 10;
+    position: relative;
+}
+
+.view-all-btn:hover {
+    background-color: #7c1414;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
