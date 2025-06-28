@@ -1,5 +1,4 @@
 <?php
-// blogwebsite/dangnhap.php
 
 // 1. Đảm bảo BASE_PATH được định nghĩa
 if (!defined('BASE_PATH')) {
@@ -9,17 +8,6 @@ if (!defined('BASE_PATH')) {
 // 2. Include file kết nối cơ sở dữ liệu và các hàm chung
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/functions.php'; // Đảm bảo file functions.php đã được include
-
-// Bắt đầu session (rất quan trọng cho việc quản lý trạng thái đăng nhập)
-// if (session_status() == PHP_SESSION_NONE) {
-//     session_start();
-// }
-
-// Nếu người dùng đã đăng nhập, chuyển hướng về trang chủ hoặc trang dashboard
-// if (isset($_SESSION['user_id'])) {
-//     header("Location: " . BASE_PATH . "/index.php"); // Hoặc dashboard.php
-//     exit();
-// }
 
 // 3. Định nghĩa các biến cho layout và tiêu đề trang
 $pageTitle = "Đăng Nhập | Bếp Anh Tài";

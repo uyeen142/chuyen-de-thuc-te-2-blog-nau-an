@@ -1,5 +1,4 @@
 <?php
-// blogwebsite/dangky.php
 
 // 1. Đảm bảo BASE_PATH được định nghĩa
 if (!defined('BASE_PATH')) {
